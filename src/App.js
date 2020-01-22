@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "./components/Header";
 // import Cart from "./components/Cart";
-import Meals from "./components/Meals";
+import Content from "./components/Content";
 import "./css/style.css";
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
       ) : (
         <>
           <Header restaurant={restaurant} setRestaurant={setRestaurant} />
-          <Meals meals={meals} setMeals={setMeals} />
+          <Content meals={meals} setMeals={setMeals} />
         </>
       )}
     </div>
