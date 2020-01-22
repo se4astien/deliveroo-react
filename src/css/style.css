@@ -7,10 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #2e3333;
 }
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
+} */
 .wrapper {
   margin: 0 auto;
   width: 96vw;
@@ -18,6 +18,10 @@ code {
   display: flex;
   align-items: flex-start; /* permet d'aligner le sticky par rapport au conteneur */
 }
+.flex {
+  display: flex;
+}
+
 .top {
   height: 60px;
   border-bottom: 1px solid #e9ebeb;
@@ -33,6 +37,7 @@ code {
 .restaurant-actu h1 {
   font-size: 2rem;
   text-transform: capitalize;
+  margin-top: 5px;
 }
 .restaurant-actu p {
   color: #868a8a;
@@ -43,8 +48,10 @@ code {
   flex: 1;
   margin-right: 30px;
 }
-.restaurant-actu .picture {
-  background-color: #000;
+
+.restaurant-actu img {
+  object-fit: cover;
+  overflow: hidden;
   width: 350px;
   height: 230px;
   border-radius: 5px;
@@ -56,6 +63,7 @@ code {
 
 .meals {
   flex: 1;
+  padding: 50px 0;
 }
 
 .meals .meals-items {
@@ -105,21 +113,29 @@ code {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.meals .meals-items .meal-item .text span {
+.meals .meals-items .meal-item .text .price {
   color: #808484;
   font-size: 1.1rem;
 }
-.meals .meals-items .meal-item .text span:last-child {
+.meals .meals-items .meal-item .text .popular {
   color: #ff8000;
   font-size: 0.8rem;
   margin-left: 1rem;
   font-weight: 800;
+  display: flex;
+  align-items: center;
 }
-.meals .meals-items .meal-item .picture {
+.feather {
+  width: 20px;
+  height: 20px;
+  padding-right: 5px;
+}
+
+.meals .meals-items .meal-item .picture img {
   width: 130px;
   height: 130px;
-  background-color: #000;
   border-radius: 5px;
+  object-fit: cover;
 }
 
 .cart {

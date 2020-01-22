@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function Meal() {
+export default function Meal(props) {
   return (
     <div className="meal-item">
       <div className="text">
-        <h3>Brunch authentique 1 personne</h3>
+        <h3>{props.meal.title}</h3>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis
           ad omnis aut explicabo culpa. Obcaecati aut, quis ea aliquid
