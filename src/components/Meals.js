@@ -1,6 +1,6 @@
 import React from "react";
 import Meal from "./Meal";
-import Card from "./Card";
+import Cart from "./Cart";
 
 export default function Meals() {
   return (
@@ -21,7 +21,7 @@ export default function Meals() {
             <Meal />
           </div>
         </div>
-        <Card />
+        <Cart />
       </div>
     </section>
   );

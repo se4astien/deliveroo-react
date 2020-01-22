@@ -53,13 +53,9 @@ code {
 .content {
   background-color: #f4f5f5;
 }
+
 .meals {
   flex: 1;
-}
-.cart {
-  width: 350px;
-  position: sticky;
-  top: 0;
 }
 
 .meals .meals-items {
@@ -124,4 +120,42 @@ code {
   height: 130px;
   background-color: #000;
   border-radius: 5px;
+}
+
+.cart {
+  width: 350px;
+  position: sticky;
+  top: 0;
+  margin: 30px 0;
+}
+.cart .cart-box {
+  box-shadow: 0 22px 24px 0 rgba(46, 51, 51, 0.07);
+  background: #fff;
+  border-radius: 4px;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 30px 0;
+}
+.cart .cart-box .disabled {
+  cursor: not-allowed;
+  background: #bac3c3;
+  color: #8b9a9b;
+}
+.cart .cart-box .validate {
+  display: block;
+  margin: 10px;
+  border-radius: 5px;
+  padding: 1rem;
+  background: #00cdbd;
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.cart .cart-box .cart-empty {
+  color: #868a8a;
+  text-align: center;
+  padding: 3rem 0;
 }
