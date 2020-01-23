@@ -104,10 +104,10 @@ function App() {
               </div>
               <div className="cart">
                 <div className="cart-box">
-                  <button className="disabled validate">
+                  {/* <button className="validate disable"> */}
+                  <button className={products < 1 ? "disable" : "validate"}>
                     Valider mon panier
                   </button>
-                  <div className="empty"></div>
                   <div className="items">
                     {products.map(product => {
                       const productPrice = product.price * product.quantity;
@@ -120,18 +120,26 @@ function App() {
                         />
                       );
                     })}
-                    <div className="results">
-                      <span>Sous-total</span>
-                      <span className="cart-ship">{totalPrice} €</span>
-                    </div>
-                    <div className="ship">
-                      <span>Frais de livraison</span>
-                      <span>{shippingCost} €</span>
-                    </div>
-                    <div className="total">
-                      <span>Total</span>
-                      <span>{totalPrice + shippingCost} €</span>
-                    </div>
+                    {products < 1 ? (
+                      <div className="cart-empty">
+                        <p>Votre panier est vide</p>
+                      </div>
+                    ) : (
+                      <>
+                        <div className="results">
+                          <span>Sous-total</span>
+                          <span className="cart-ship">{totalPrice} €</span>
+                        </div>
+                        <div className="ship">
+                          <span>Frais de livraison</span>
+                          <span>{shippingCost} €</span>
+                        </div>
+                        <div className="total">
+                          <span>Total</span>
+                          <span>{totalPrice + shippingCost} €</span>
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
