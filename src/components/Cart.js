@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Card() {
+export default function Card(props) {
   return (
     <div className="cart">
       <div className="cart-box">
@@ -8,8 +8,29 @@ export default function Card() {
         <div className="empty"></div>
 
         <div className="items">
-          <div className="results"></div>
-          <div className="total"></div>
+          <div className="cart-items">
+            <div className="cart-line">
+              <div className="counter">
+                <span>-</span>
+                <span>1</span>
+                <span>+</span>
+              </div>
+              <div className="cart-item-name">{props.name}</div>
+              <div className="cart-amount">6,00 €</div>
+            </div>
+          </div>
+          <div className="results">
+            <span>Sous-total</span>
+            <span className="cart-ship">6,00 €</span>
+          </div>
+          <div className="ship">
+            <span>Frais de livraison</span>
+            <span>2,50 €</span>
+          </div>
+          <div className="total">
+            <span>Total</span>
+            <span>30,50 €</span>
+          </div>
         </div>
       </div>
     </div>

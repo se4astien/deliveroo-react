@@ -103,7 +103,6 @@ body {
 .meals .meals-items .meal-item .text p {
   font-size: 0.9rem;
   color: #808484;
-  /* margin: 0 0 10px; */
   line-height: 1.3rem;
   /* overflow: hidden;
   text-overflow: ellipsis; */
@@ -174,4 +173,43 @@ body {
   color: #868a8a;
   text-align: center;
   padding: 3rem 0;
+}
+
+.items {
+  padding: 0 15px;
+}
+.items > div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.items .cart-items .cart-line {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.items .cart-items .cart-line .counter {
+  display: flex;
+  align-items: center;
+}
+.items .cart-items .cart-line .counter span:first-child,
+.items .cart-items .cart-line .counter span:last-child {
+  border: 2px solid #00cdbd;
+  color: #00cdbd;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  align-items: flex-end;
+  justify-content: center;
+  display: flex;
+  cursor: pointer;
+}
+.items .cart-items .cart-line .counter span:nth-last-child(2) {
+  margin: 0 10px;
+}
+.items .cart-items,
+.items .ship {
+  border-bottom: 1px solid #d1d7d7;
+  padding-bottom: 15px;
 }
