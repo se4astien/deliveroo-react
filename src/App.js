@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "./components/Header";
-// import Cart from "./components/Cart";
+import Cart from "./components/Cart";
 import Meal from "./components/Meal";
 import "./css/style.css";
 
@@ -9,21 +9,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [restaurant, setRestaurant] = useState({});
   const [meals, setMeals] = useState({});
-  // Panier
-  const [products, setProducts] = useState([
-    {
-      id: "88",
-      name: "Brunch",
-      price: 25,
-      quantity: 1
-    },
-    {
-      id: "90",
-      name: "Granola",
-      price: 20,
-      quantity: 3
-    }
-  ]);
+  const [products, setProducts] = useState([]); // Panier
 
   const fetchData = async () => {
     try {
@@ -41,6 +27,52 @@ function App() {
     fetchData();
   }, []);
 
+  // Fonction pour ajouter un produit
+  const addProduct = product => {
+    const newProducts = [...products];
+    let isFound = false;
+    for (let i = 0; i < newProducts.length; i++) {
+      if (newProducts[i].id === product.id) {
+        newProducts[i].quantity = newProducts[i].quantity + 1;
+        isFound = true;
+        break;
+      }
+    }
+    if (isFound === false) {
+      product.quantity = 1;
+      newProducts.push(product);
+    }
+    setProducts(newProducts);
+  };
+
+  // Supprimer un élément du tableau
+  const removeProduct = product => {
+    const newProducts = [...products];
+    for (let i = 0; i < newProducts.length; i++) {
+      if (newProducts[i].id === product.id) {
+        newProducts[i].quantity = newProducts[i].quantity - 1;
+        if (newProducts[i].quantity === 0) {
+          // Pour retirer un élément du tableau
+          newProducts.splice(i, 1);
+        }
+        // Pour ne pas chercher dans tout le tableau une fois qu'on a trouvé
+        break;
+      }
+    }
+    setProducts(newProducts);
+  };
+
+  const calculateTotal = () => {
+    let total = 0;
+    for (let i = 0; i < products.length; i++) {
+      total = total + products[i].price * products[i].quantity;
+    }
+    return Number(total.toFixed(2));
+  };
+
+  const totalPrice = calculateTotal();
+  const shippingCost = 2.5;
+
   return (
     <div className="container">
       {isLoading === true ? (
@@ -57,7 +89,13 @@ function App() {
                       <div key={index} className="meals-items">
                         <h2>{category}</h2>
                         {meals[category].map((meal, index) => {
-                          return <Meal key={index} {...meal} />;
+                          return (
+                            <Meal
+                              key={meal.id}
+                              addProduct={addProduct}
+                              data={meal}
+                            />
+                          );
                         })}
                       </div>
                     );
@@ -66,9 +104,35 @@ function App() {
               </div>
               <div className="cart">
                 <div className="cart-box">
-                  {products.map(product => {
-                    return <div>{product.name}</div>;
-                  })}
+                  <button className="disabled validate">
+                    Valider mon panier
+                  </button>
+                  <div className="empty"></div>
+                  <div className="items">
+                    {products.map(product => {
+                      const productPrice = product.price * product.quantity;
+                      return (
+                        <Cart
+                          addProduct={addProduct}
+                          removeProduct={removeProduct}
+                          productPrice={productPrice}
+                          data={product}
+                        />
+                      );
+                    })}
+                    <div className="results">
+                      <span>Sous-total</span>
+                      <span className="cart-ship">{totalPrice} €</span>
+                    </div>
+                    <div className="ship">
+                      <span>Frais de livraison</span>
+                      <span>{shippingCost} €</span>
+                    </div>
+                    <div className="total">
+                      <span>Total</span>
+                      <span>{totalPrice + shippingCost} €</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

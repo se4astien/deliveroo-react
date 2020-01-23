@@ -183,17 +183,15 @@ body {
   justify-content: space-between;
   margin-bottom: 20px;
 }
-.items .cart-items .cart-line {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+.items .cart-items > div {
+  align-items: center;
 }
-.items .cart-items .cart-line .counter {
+.items .cart-items .counter {
   display: flex;
   align-items: center;
 }
-.items .cart-items .cart-line .counter span:first-child,
-.items .cart-items .cart-line .counter span:last-child {
+.items .cart-items .counter span:first-child,
+.items .cart-items .counter span:last-child {
   border: 2px solid #00cdbd;
   color: #00cdbd;
   font-size: 1.2rem;
@@ -204,12 +202,26 @@ body {
   justify-content: center;
   display: flex;
   cursor: pointer;
+  outline: none;
 }
-.items .cart-items .cart-line .counter span:nth-last-child(2) {
-  margin: 0 10px;
+.items .cart-items .counter span:nth-child(2) {
+  margin: 0 5px;
 }
+.items .cart-items .cart-item-name {
+  display: flex;
+  flex: 1;
+  margin-left: 10px;
+}
+
 .items .cart-items,
 .items .ship {
   border-bottom: 1px solid #d1d7d7;
   padding-bottom: 15px;
+}
+.items .total {
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+.meals-items > div {
+  margin: 20px 0;
 }

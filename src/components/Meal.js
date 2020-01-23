@@ -1,14 +1,24 @@
 import React from "react";
 
 export default function Meal(props) {
+  // console.log(props.data); // le plat
   return (
-    <div className="meal-item">
+    <div
+      className="meal-item"
+      onClick={() => {
+        props.addProduct({
+          id: props.data.id,
+          name: props.data.title,
+          price: props.data.price
+        });
+      }}
+    >
       <div className="text">
-        <h3>{props.title}</h3>
-        <p>{props.description}</p>
+        <h3>{props.data.title}</h3>
+        <p>{props.data.description}</p>
         <div className="flex">
-          <span className="price">{props.price}€</span>
-          {props.popular ? (
+          <span className="price">{props.data.price}€</span>
+          {props.data.popular ? (
             <span className="popular">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -24,8 +34,13 @@ export default function Meal(props) {
         </div>
       </div>
       <div className="picture">
-        {props.picture != null ? (
-          <img src={props.picture} alt={props.title} width="130" height="130" />
+        {props.data.picture != null ? (
+          <img
+            src={props.data.picture}
+            alt={props.data.title}
+            width="130"
+            height="130"
+          />
         ) : null}
       </div>
     </div>
