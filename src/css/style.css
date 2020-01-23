@@ -85,7 +85,7 @@ button {
   align-items: flex-start;
   cursor: pointer;
   transition-duration: 0.3s;
-  min-width: 400px;
+  min-width: 350px;
 }
 .meals .meals-items .meal-item:hover {
   box-shadow: 0 22px 24px 0 rgba(46, 51, 51, 0.07);
