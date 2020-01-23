@@ -1,6 +1,7 @@
-# Deliveroo React 
+# Deliveroo React Hooks
 
 You can select a meal, add, remove and modify your selection.
+Meals fetch with Axios.
 
 ## Code
 
