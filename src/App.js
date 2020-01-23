@@ -128,15 +128,17 @@ function App() {
                       <>
                         <div className="results">
                           <span>Sous-total</span>
-                          <span className="cart-ship">{totalPrice} €</span>
+                          <span className="cart-ship">
+                            {totalPrice.toFixed(2)} €
+                          </span>
                         </div>
                         <div className="ship">
                           <span>Frais de livraison</span>
-                          <span>{shippingCost} €</span>
+                          <span>{shippingCost.toFixed(2)} €</span>
                         </div>
                         <div className="total">
                           <span>Total</span>
-                          <span>{totalPrice + shippingCost} €</span>
+                          <span>{totalPrice + shippingCost + "0"}€</span>
                         </div>
                       </>
                     )}
