@@ -13,6 +13,10 @@ npx create-react-app deliveroo-react
 
 https://deliveroo-with-react.netlify.com/
 
+## Screenshots
+
+![](https://github.com/se4astien/deliveroo-react/blob/master/src/screenshots/deliveroo-01.png)
+![](https://github.com/se4astien/deliveroo-react/blob/master/src/screenshots/deliveroo-02.png)
 
 ## Available Scripts
 
